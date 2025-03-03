@@ -130,7 +130,7 @@ def FORM_GRAB(link, proxies):
 
 #main loop
 def main():
-	url = "https://secured.heritage.org/the-heritage-doge-survey"
+	url = "<insert URL>
 	#proxieThings = {"http" : "socks5h://127.0.0.1:9150", "https" : "socks5h://127.0.0.1:9150"}
 	proxieThings = False
 	code_run = True
