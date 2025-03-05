@@ -60,9 +60,12 @@ def FORM_GRAB(link, proxies):
 	
 	#get the URL for submission
 	submit_URL = input_form.get("action")
-	if not submit_URL.startswith("http"): #if it doesn't start with http, then it's referencign a site within it'self and needs to add it onto the url :3
+	if submit_URL == None: 
+		print("No new URL to be added")
+		submit_URL = link
+	elif not submit_URL.startswith("http"): #if it doesn't start with http, then it's referencign a site within it'self and needs to add it onto the url :3
 		submit_URL = link + submit_URL
-		#print(submit_URL)
+		print(submit_URL)
 	#setting up the submission data :D
 	form_data = {}	
 	
@@ -108,7 +111,8 @@ def FORM_GRAB(link, proxies):
 			elif input_type == "hidden": #added hidden so that if there is a hidden value that is needed it's grabbed 
 				form_data[field_Name] = input_field.get('value')
 				
-	
+		
+			
 	if proxies:
 		response = session.post(submit_URL,data=form_data,proxies=proxies)
 	else:
@@ -119,29 +123,34 @@ def FORM_GRAB(link, proxies):
 		print(f"Form successfully submitted to {submit_URL}")
 		session.cookies.clear_session_cookies()
 		session.close()
+		return True
 	else:
 		print(f"Failed to submit form. Status code: {response.status_code}")
 		session.cookies.clear_session_cookies()
 		session.close()
 		return False
 
-
 	#make it check for a captcha or csrf token to see if selenium is needed, then switch to selenium with all the information gathered
+	
 
 #main loop
 def main():
-	url = "<insert URL>
+	url = "<input URL here>"
 	#proxieThings = {"http" : "socks5h://127.0.0.1:9150", "https" : "socks5h://127.0.0.1:9150"}
 	proxieThings = False
 	code_run = True
 	while code_run:
 		http_run = FORM_GRAB(url, proxieThings)
 		if http_run:
+			waitTime = (str(random.randint(3,9))+"."+str(random.randint(0,9)))
+			print("Waiting " + waitTime + " seconds")
+			time.sleep(float(waitTime))
 			continue
 		else:
 			#put selenium here
 			code_run = http_run
-		
+			print("code stop")
+			
 		
 if __name__ == "__main__":
 	main()
