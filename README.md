@@ -5,5 +5,5 @@ it should test the site in with regular http post request, and grab the informat
 
 i'll be working on the code whenever i'm broed and remember it :3
 
-Big Shoutout to ArachnidInner. They helped me without realizing!!!
+Big Shoutout to ArachnidInner and lamererouge. They helped me without realizing!!!
 (AKA: I Stole some of their code to get this to work :3 but it works now!!!)
