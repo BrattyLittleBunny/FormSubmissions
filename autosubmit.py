@@ -270,7 +270,7 @@ def _request_session(link, proxies):
 
 #main loop
 def main(): 
-	url = ["https://enddei.ed.gov/", "https://secured.heritage.org/the-heritage-doge-survey"]
+	url = [<Put URLS HERE IN THIS LIST =>:3>]
 	#proxieThings = {"http" : "socks5h://127.0.0.1:9150", "https" : "socks5h://127.0.0.1:9150"}
 	proxieThings = False
 	code_run = True
